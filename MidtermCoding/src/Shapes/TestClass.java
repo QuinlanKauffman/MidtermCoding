@@ -7,6 +7,7 @@ import java.util.Comparator;
 import org.junit.Test;
 
 import Shapes.Cuboid.SortByArea;
+import Shapes.Cuboid.SortByVolume;
 
 public class TestClass {
 
@@ -19,7 +20,7 @@ public class TestClass {
 		
 		System.out.println("The perimeter of the rectangle is: ");
 		System.out.println(rec1.perimeter());
-		
+		//Works
 	}
 	
 	@Test
@@ -31,6 +32,7 @@ public class TestClass {
 		
 		System.out.println("The perimeter of the rectangle is: ");
 		System.out.println(rec1.perimeter());
+		//Works
 		
 	}
 	
@@ -89,7 +91,6 @@ public class TestClass {
 	@Test
 	public void testCuboidComparator1()
 	{
-		Cuboid c = new Cuboid(0,0,0);
 		ArrayList<Cuboid> ar = new ArrayList<Cuboid>(); 
         ar.add(new Cuboid(1,1,1)); 
         ar.add(new Cuboid(5,4,3)); 
@@ -101,10 +102,11 @@ public class TestClass {
             System.out.println(ar.get(i));
         }
         
-        Collections.sort(ar, c.compareTo(ar(i))); 
-       
-        //Collections.sort(array, new PacketComparator());
+        SortByVolume s = new SortByVolume();
+        Collections.sort(ar, new s.compare());
         //How to call the comparator, but doesn't work because comparator is a nested class
+        
+        //Could not get Comparator interface to work
         
         System.out.println("Sorted by volume"); 
         for (int i=0; i<ar.size(); i++) 

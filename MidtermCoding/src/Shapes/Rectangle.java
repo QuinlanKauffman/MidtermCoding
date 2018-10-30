@@ -48,9 +48,9 @@ public class Rectangle extends Shape{
 	public int compareTo(Object obj)
 	{
 		if (this.area() > ((Rectangle) obj).area())
-			return -1;
-		if (this.area() < ((Rectangle) obj).area())
 			return 1;
+		if (this.area() < ((Rectangle) obj).area())
+			return -1;
 		return 0;
 	}
 	

@@ -62,8 +62,7 @@ public class Cuboid extends Rectangle{
 	@Override
 	public int compareTo(Object obj)
 	{
-		SortByArea s = new SortByArea();
-		return s.compare(this,(Cuboid) obj);
+		return 0;
 	}
 
 
