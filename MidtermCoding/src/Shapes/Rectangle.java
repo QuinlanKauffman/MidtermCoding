@@ -1,4 +1,7 @@
 package Shapes;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Rectangle extends Shape{
 
@@ -42,9 +45,15 @@ public class Rectangle extends Shape{
 	}
 	
 	//Compare to method
-	
 	public int compareTo(Object obj)
 	{
+		if (this.area() > ((Rectangle) obj).area())
+			return -1;
+		if (this.area() < ((Rectangle) obj).area())
+			return 1;
 		return 0;
 	}
+	
+	
+	
 }

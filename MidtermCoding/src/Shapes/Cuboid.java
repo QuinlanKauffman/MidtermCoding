@@ -10,6 +10,7 @@ public class Cuboid extends Rectangle{
 	private int iDepth;
 	
 	public Cuboid(int iWidth, int iLength, int iDepth) {
+		super(iWidth, iLength);
 		this.iDepth = iDepth;
 		super.setiLength(iLength);
 		super.setiWidth(iWidth);
@@ -57,6 +58,13 @@ public class Cuboid extends Rectangle{
 		return (super.getiWidth()*super.getiLength()*iDepth);
 	}
 
+	
+	@Override
+	public int compareTo(Object obj)
+	{
+		SortByArea s = new SortByArea();
+		return s.compare(this,(Cuboid) obj);
+	}
 
 
 	public class SortByVolume implements Comparator<Cuboid>{
@@ -64,17 +72,25 @@ public class Cuboid extends Rectangle{
 		
 		public int compare(Cuboid c1, Cuboid c2)
 		{
-			return (c1.volume().compareTo(c2.volume()));
+			if (c1.volume() < c2.volume())
+				return -1;
+			if (c1.volume() > c2.volume())
+				return 1;
+			return 0;
 		}
 	}
-	
+	 
 	
 	public class SortByArea implements Comparator<Cuboid>{
 		SortByArea(){}
 		
 		public int compare(Cuboid c1, Cuboid c2)
 		{
-			return (c1.area().compareTo(c2.area()));
+			if (c1.area() < c2.area())
+				return -1;
+			if (c1.area() > c2.area())
+				return 1;
+			return 0;
 		}
 	}
 }

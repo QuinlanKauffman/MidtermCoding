@@ -9,6 +9,6 @@ public class UnsupportedOperationException extends Exception{
 
 	public UnsupportedOperationException() 
     { 
-		System.out.println("Unsupported Operation");
+		System.out.println("Unsupported Operation for Perimeter");
     } 
 }
