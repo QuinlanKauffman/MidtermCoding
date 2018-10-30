@@ -6,8 +6,6 @@ import java.util.Comparator;
 
 import org.junit.Test;
 
-import Shapes.Cuboid.SortByArea;
-import Shapes.Cuboid.SortByVolume;
 
 public class TestClass {
 
@@ -91,30 +89,30 @@ public class TestClass {
 	@Test
 	public void testCuboidComparator1()
 	{
+		
 		ArrayList<Cuboid> ar = new ArrayList<Cuboid>(); 
         ar.add(new Cuboid(1,1,1)); 
         ar.add(new Cuboid(5,4,3)); 
         ar.add(new Cuboid(6,6,6)); 
   
-        System.out.println("Unsorted"); 
-        for (int i=0; i<ar.size(); i++) 
-        {
-            System.out.println(ar.get(i));
-        }
-        
-        SortByVolume s = new SortByVolume();
-        Collections.sort(ar, new s.compare());
-        //How to call the comparator, but doesn't work because comparator is a nested class
-        
-        //Could not get Comparator interface to work
+ 
+        Collections.sort(ar, new Cuboid.SortByVolume());
+       
         
         System.out.println("Sorted by volume"); 
         for (int i=0; i<ar.size(); i++) 
         {
-            System.out.println(ar.get(i)); 
+            System.out.println(ar.get(i).volume()); 
         }
         	
-		
+        
+        Collections.sort(ar, new Cuboid.SortByArea());        
+        System.out.println("Sorted by area"); 
+        for (int i=0; i<ar.size(); i++) 
+        {
+            System.out.println(ar.get(i).area()); 
+        }
+        
 		
 	}
 }
